@@ -1,0 +1,159 @@
+status: 200
+content-length: 5464
+via: 1.1 varnish
+content-transfer-encoding: binary
+vary: Accept-Encoding
+x-cache: MISS
+x-content-type-options: nosniff
+x-runtime: 100
+etag: "b0a68f6e1a06b6cb7c9d703014dc27a4"
+x-cache-hits: 0
+cache-control: private
+-varied-accept-encoding: gzip, deflate
+x-ratelimit-remaining: 100
+x-served-by: cache-c31-CHI
+content-disposition: inline
+accept-ranges: bytes
+-content-encoding: gzip
+date: Thu, 27 Jun 2013 19:38:17 GMT
+access-control-allow-origin: https://render.github.com
+content-location: https://raw.github.com/timductive/rs-heat-templates/master/rackspace/WordPress_Single_Instance_Rackspace_Cloud_Servers.template
+age: 0
+server: GitHub.com
+x-ratelimit-limit: 100
+x-frame-options: deny
+content-type: text/plain; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+
+    "Description" : "AWS CloudFormation Sample Template WordPress_Single_Instance: WordPress is web software you can use to create a beautiful website or blog. This template installs a single-instance WordPress deployment using a local MySQL database to store the data.",
+
+    "Parameters" : {
+
+        "Flavor" : {
+            "Description" : "Rackspace Cloud Server flavor",
+            "Type" : "String",
+            "Default" : "2",
+            "AllowedValues" : [ "2", "3", "4", "5", "6", "7", "8" ],
+            "ConstraintDescription" : "must be a valid Rackspace Cloud Server flavor."
+        },
+
+        "ServerName" : {
+            "Description" : "Instance name",
+            "Type" : "String",
+            "Default" : "My server"
+        },
+
+        "PublicKey" : {
+            "Description" : "Public SSH key that will be added to root user",
+            "Type" : "String",
+            "Default" : ""
+        },
+
+        "ImageName" : {
+            "Description" : "Image name",
+            "Type" : "String",
+            "Default" : "Fedora 17 (Beefy Miracle)"
+        },
+
+        "DBName": {
+            "Default": "wordpress",
+            "Description" : "The WordPress database name",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "64",
+            "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
+        },
+
+        "DBUsername": {
+            "Default": "admin",
+            "NoEcho": "true",
+            "Description" : "The WordPress database admin account username",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "16",
+            "AllowedPattern" : "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription" : "must begin with a letter and contain only alphanumeric characters."
+        },
+
+        "DBPassword": {
+            "Default": "admin",
+            "NoEcho": "true",
+            "Description" : "The WordPress database admin account password",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "41",
+            "AllowedPattern" : "[a-zA-Z0-9]*",
+            "ConstraintDescription" : "must contain only alphanumeric characters."
+        },
+
+        "DBRootPassword": {
+            "Default": "admin",
+            "NoEcho": "true",
+            "Description" : "Root password for MySQL",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "41",
+            "AllowedPattern" : "[a-zA-Z0-9]*",
+            "ConstraintDescription" : "must contain only alphanumeric characters."
+        }
+    },
+
+    "Resources" : {
+        "WikiDatabase": {
+            "Type": "Rackspace::Cloud::Server",
+            "Metadata" : {
+                "AWS::CloudFormation::Init" : {
+                    "config" : {
+                        "packages" : {
+                            "yum" : {
+                                "mysql"        : [],
+                                "mysql-server" : [],
+                                "httpd"        : [],
+                                "wordpress"    : []
+                            }
+                        },
+                        "services" : {
+                            "systemd" : {
+                                "mysqld"   : { "enabled" : "true", "ensureRunning" : "true" },
+                                "httpd"    : { "enabled" : "true", "ensureRunning" : "true" }
+                            }
+                        }
+                    }
+                }
+            },
+            "Properties": {
+                "Flavor"   : { "Ref" : "Flavor" },
+                "ImageName" : { "Ref" : "ImageName" },
+                "ServerName"   : { "Ref" : "ServerName" },
+                "PublicKey"   : { "Ref" : "PublicKey" },
+                "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
+                    "#!/bin/bash -v\n",
+                    "/usr/bin/cfn-init\n",
+                    "# Setup MySQL root password and create a user\n",
+                    "mysqladmin -u root password '", { "Ref" : "DBRootPassword" }, "'\n",
+                    "cat << EOF | mysql -u root --password='", { "Ref" : "DBRootPassword" }, "'\n",
+                    "CREATE DATABASE ", { "Ref" : "DBName" }, ";\n",
+                    "GRANT ALL PRIVILEGES ON ", { "Ref" : "DBName" }, ".* TO \"", { "Ref" : "DBUsername" }, "\"@\"localhost\"\n",
+                    "IDENTIFIED BY \"", { "Ref" : "DBPassword" }, "\";\n",
+                    "FLUSH PRIVILEGES;\n",
+                    "EXIT\n",
+                    "EOF\n",
+                    "sed -i \"/Deny from All/d\" /etc/httpd/conf.d/wordpress.conf\n",
+                    "sed -i \"s/Require local/Require all granted/\" /etc/httpd/conf.d/wordpress.conf\n",
+                    "sed --in-place --e s/database_name_here/", { "Ref" : "DBName" }, "/ --e s/username_here/", { "Ref" : "DBUsername" }, "/ --e s/password_here/", { "Ref" : "DBPassword" }, "/ /usr/share/wordpress/wp-config.php\n",
+                    "systemctl restart httpd.service\n"
+                ]]}}
+            }
+        }
+    },
+    "Outputs" : {
+        "WebsiteURL" : {
+            "Value" : { "Fn::Join" : ["", ["http://", { "Fn::GetAtt" : [ "WikiDatabase", "PublicIp" ]}, "/wordpress"]] },
+            "Description" : "URL for Wordpress wiki"
+        }
+    }
+}

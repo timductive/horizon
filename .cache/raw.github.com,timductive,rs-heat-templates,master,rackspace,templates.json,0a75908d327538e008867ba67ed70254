@@ -1,0 +1,36 @@
+status: 200
+content-length: 287
+via: 1.1 varnish
+content-transfer-encoding: binary
+vary: Accept-Encoding
+x-cache: MISS
+x-content-type-options: nosniff
+x-runtime: 14
+etag: "ee67f6acb7e7d2b54fdfd998b7364aeb"
+x-cache-hits: 0
+cache-control: private
+-varied-accept-encoding: gzip, deflate
+x-ratelimit-remaining: 100
+x-served-by: cache-d46-DAL
+content-disposition: inline
+accept-ranges: bytes
+-content-encoding: gzip
+date: Thu, 27 Jun 2013 19:38:15 GMT
+access-control-allow-origin: https://render.github.com
+content-location: https://raw.github.com/timductive/rs-heat-templates/master/rackspace/templates.json
+age: 0
+server: GitHub.com
+x-ratelimit-limit: 100
+x-frame-options: deny
+content-type: text/plain; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+{
+    "templates":[
+        {
+            "id":1,
+            "name":"Wordpress Single Instance Rackspace Cloud Servers",
+            "url":"https://raw.github.com/timductive/rs-heat-templates/master/rackspace/WordPress_Single_Instance_Rackspace_Cloud_Servers.template"
+        }
+    ]
+}

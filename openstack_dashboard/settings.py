@@ -37,7 +37,7 @@ if ROOT_PATH not in sys.path:
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-SITE_BRANDING = 'OpenStack Dashboard'
+SITE_BRANDING = 'Rackspace Orchestration'
 
 LOGIN_URL = '/auth/login/'
 LOGOUT_URL = '/auth/logout/'
@@ -54,8 +54,8 @@ STATIC_URL = '/static/'
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
 HORIZON_CONFIG = {
-    'dashboards': ('project', 'admin', 'settings',),
-    'default_dashboard': 'project',
+    'dashboards': ('heat', ),
+    'default_dashboard': 'heat',
     'user_home': 'openstack_dashboard.views.get_user_home',
     'ajax_queue_limit': 10,
     'auto_fade_alerts': {
@@ -140,6 +140,7 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.admin',
     'openstack_dashboard.dashboards.settings',
     'openstack_auth',
+    'orchestration',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

@@ -36,9 +36,10 @@ def heatclient(request):
     LOG.debug('heatclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, endpoint))
     kwargs = {
-        'token': request.user.token.id,
+        'token': getattr(settings, 'RACKSPACE_TOKEN', False), #request.user.token.id,
         'insecure': insecure,
-        'username': request.user.username
+        'username': getattr(settings, 'RACKSPACE_USER', False),
+        'password':getattr(settings, 'RACKSPACE_PASSWORD', False),
         #'timeout': args.timeout,
         #'ca_file': args.ca_file,
         #'cert_file': args.cert_file,
