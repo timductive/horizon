@@ -28,8 +28,8 @@ from django.utils.datastructures import SortedDict
 
 from openstack_dashboard.api.base import APIDictWrapper
 from openstack_dashboard.api.base import url_for
-from openstack_dashboard.api import network
-from openstack_dashboard.api import nova
+from openstack_dashboard.api.network import *
+from openstack_dashboard.api.nova import *
 
 from quantumclient.v2_0 import client as quantum_client
 
