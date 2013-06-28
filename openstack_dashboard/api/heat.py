@@ -13,6 +13,8 @@
 # under the License.
 
 import logging
+import httplib2
+import json
 
 from django.conf import settings
 from heatclient import client as heat_client
@@ -35,11 +37,36 @@ def heatclient(request):
     endpoint = url_for(request, 'orchestration')
     LOG.debug('heatclient connection created using token "%s" and url "%s"' %
               (request.user.token.id, endpoint))
+
+    rs_user = request.user.username #getattr(settings, 'RACKSPACE_USER', False)
+    rs_password = getattr(settings, 'RACKSPACE_PASSWORD', False)
+
+    #Call Rackspace Identity to get Token
+    url = 'https://identity.api.rackspacecloud.com/v2.0/tokens'
+
+    data = {}
+    data['auth'] = {}
+    data['auth']['passwordCredentials'] = {
+        'username':rs_user,
+        'password':rs_password
+    }
+
+    h = httplib2.Http(".cache")
+    resp, content = h.request(
+        uri=url,
+        method='POST',
+        headers={'Content-Type': 'application/json; charset=UTF-8'},
+        body=json.dumps(data),
+        )
+    content = json.loads(content)
+    rs_token = content.get('access').get('token').get('id')
+
+
     kwargs = {
-        'token': getattr(settings, 'RACKSPACE_TOKEN', False), #request.user.token.id,
+        'token': rs_token, #request.user.token.id,
         'insecure': insecure,
-        'username': getattr(settings, 'RACKSPACE_USER', False),
-        'password':getattr(settings, 'RACKSPACE_PASSWORD', False),
+        'username': rs_user,
+        'password': rs_password,
         #'timeout': args.timeout,
         #'ca_file': args.ca_file,
         #'cert_file': args.cert_file,

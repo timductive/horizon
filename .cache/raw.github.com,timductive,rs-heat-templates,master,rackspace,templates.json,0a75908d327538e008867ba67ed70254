@@ -15,7 +15,7 @@ x-served-by: cache-d46-DAL
 content-disposition: inline
 accept-ranges: bytes
 -content-encoding: gzip
-date: Thu, 27 Jun 2013 19:38:15 GMT
+date: Fri, 28 Jun 2013 15:05:24 GMT
 access-control-allow-origin: https://render.github.com
 content-location: https://raw.github.com/timductive/rs-heat-templates/master/rackspace/templates.json
 age: 0
