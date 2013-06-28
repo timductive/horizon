@@ -4,16 +4,18 @@
     <list default="true" id="3cbf5ab8-11ae-4066-9072-50e4488cbabd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/api/__init__.py" afterPath="$PROJECT_DIR$/openstack_dashboard/api/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/api/quantum.py" afterPath="$PROJECT_DIR$/openstack_dashboard/api/quantum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="horizon-rs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372360208913" ignored="false" />
+    <file path="/Dummy.txt" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372429585405" ignored="false" />
     <file path="/local_settings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372358704086" ignored="false" />
     <file path="/views.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372283830770" ignored="false" />
     <file path="/settings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372346960738" ignored="false" />
     <file path="/heat.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372358729174" ignored="false" />
     <file path="/detail.html" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372362379012" ignored="false" />
-    <file path="/__init__.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372370460162" ignored="false" />
+    <file path="/__init__.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372429697075" ignored="false" />
+    <file path="/quantum.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372429615708" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,27 +39,29 @@
         <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="119" column="0" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="13" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6893491">
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#1520#1560#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="43" selection-start="1786" selection-end="1875" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quantum.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="quantum.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/quantum.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="42" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.6858407">
-              <folding />
+            <state line="20" column="0" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#849#887#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,14 +91,14 @@
         <option value="$PROJECT_DIR$/openstack_dashboard/api/heat.py" />
         <option value="$PROJECT_DIR$/orchestration/stacks/api.py" />
         <option value="$PROJECT_DIR$/orchestration/templates/orchestration/stacks/detail.html" />
-        <option value="$PROJECT_DIR$/openstack_dashboard/api/__init__.py" />
         <option value="$PROJECT_DIR$/openstack_dashboard/api/quantum.py" />
+        <option value="$PROJECT_DIR$/openstack_dashboard/api/__init__.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2237" />
-    <option name="y" value="72" />
+    <option name="x" value="1632" />
+    <option name="y" value="37" />
     <option name="width" value="1420" />
     <option name="height" value="824" />
   </component>
@@ -214,10 +218,10 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
-    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -303,7 +307,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -345,7 +349,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2237" y="72" width="1420" height="824" extended-state="0" />
+    <frame x="1632" y="37" width="1420" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -353,7 +357,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2569141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26055312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -436,16 +440,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="860" selection-end="860" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="0" selection-start="860" selection-end="860" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/admin/info/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/admin/info/tabs.py">
@@ -454,25 +454,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py.example">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="0" selection-start="4835" selection-end="4970" vertical-scroll-proportion="2.9472845" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orchestration/stacks/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="24" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="65" column="24" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="38" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="38" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/settings.py">
@@ -495,33 +491,18 @@
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="119" column="0" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="43" selection-start="1786" selection-end="1875" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orchestration/templates/orchestration/stacks/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="57" selection-start="5370" selection-end="5370" vertical-scroll-proportion="0.8715596">
-          <folding />
-        </state>
+        <state line="169" column="57" selection-start="5370" selection-end="5370" vertical-scroll-proportion="0.8715596" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orchestration/stacks/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="32" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.7300885">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="57" column="32" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.7300885" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/base.py">
@@ -533,8 +514,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/quantum.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="42" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.6858407">
-          <folding />
+        <state line="20" column="0" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#849#887#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="13" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6893491">
+          <folding>
+            <element signature="e#1520#1560#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
