@@ -108,6 +108,8 @@ def resource_get(request, stack_id, resource_name):
 def resource_metadata_get(request, stack_id, resource_name):
     return heatclient(request).resources.metadata(stack_id, resource_name)
 
+def get_template(request, stack_id, **kwargs):
+    return heatclient(request).stacks.template(stack_id, **kwargs)
 
 def template_validate(request, **kwargs):
     return heatclient(request).stacks.validate(**kwargs)
