@@ -16,9 +16,9 @@ import json
 import logging
 
 from horizon import exceptions
+from horizon import forms
 from horizon import tables
 from horizon import tabs
-from horizon import forms
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
@@ -26,11 +26,12 @@ from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import api
 
-from .tables import StacksTable
-from .tabs import ResourceDetailTabs
-from .tabs import StackDetailTabs
-from .forms import TemplateForm
-from .forms import StackCreateForm
+from openstack_dashboard.dashboards.project.stacks.forms import StackCreateForm
+from openstack_dashboard.dashboards.project.stacks.forms import TemplateForm
+from openstack_dashboard.dashboards.project.stacks.tables import StacksTable
+from openstack_dashboard.dashboards.project.stacks.tabs \
+    import ResourceDetailTabs
+from openstack_dashboard.dashboards.project.stacks.tabs import StackDetailTabs
 
 
 LOG = logging.getLogger(__name__)
@@ -46,6 +47,7 @@ class IndexView(tables.DataTableView):
             stacks = api.heat.stacks_list(self.request)
         except:
             exceptions.handle(request, _('Unable to retrieve stack list.'))
+            stacks = []
         return stacks
 
 
@@ -100,6 +102,8 @@ class DetailView(tabs.TabView):
             try:
                 stack = api.heat.stack_get(request, stack_id)
                 self._stack = stack
+                request.session['stack_id'] = stack.id
+                request.session['stack_name'] = stack.stack_name
             except:
                 msg = _("Unable to retrieve stack.")
                 redirect = reverse('horizon:project:stacks:index')

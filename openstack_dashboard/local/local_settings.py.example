@@ -154,11 +154,12 @@ OPENSTACK_HYPERVISOR_FEATURES = {
     'can_encrypt_volumes': False
 }
 
-# The OPENSTACK_QUANTUM_NETWORK settings can be used to enable optional
-# services provided by quantum.  Currently only the load balancer service
+# The OPENSTACK_NEUTRON_NETWORK settings can be used to enable optional
+# services provided by neutron.  Currently only the load balancer service
 # is available.
-OPENSTACK_QUANTUM_NETWORK = {
-    'enable_lb': False
+OPENSTACK_NEUTRON_NETWORK = {
+    'enable_security_group': True,
+    'enable_lb': False,
 }
 
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
@@ -233,6 +234,10 @@ LOGGING = {
             'propagate': False,
         },
         'glanceclient': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'heatclient': {
             'handlers': ['console'],
             'propagate': False,
         },

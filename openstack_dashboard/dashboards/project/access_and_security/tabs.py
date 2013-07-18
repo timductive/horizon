@@ -29,10 +29,14 @@ from openstack_dashboard.api import keystone
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 
-from .api_access.tables import EndpointsTable
-from .floating_ips.tables import FloatingIPsTable
-from .keypairs.tables import KeypairsTable
-from .security_groups.tables import SecurityGroupsTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    api_access.tables import EndpointsTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    floating_ips.tables import FloatingIPsTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    keypairs.tables import KeypairsTable
+from openstack_dashboard.dashboards.project.access_and_security.\
+    security_groups.tables import SecurityGroupsTable
 
 
 class SecurityGroupsTab(tabs.TableTab):
@@ -43,7 +47,7 @@ class SecurityGroupsTab(tabs.TableTab):
 
     def get_security_groups_data(self):
         try:
-            security_groups = nova.security_group_list(self.request)
+            security_groups = network.security_group_list(self.request)
         except:
             security_groups = []
             exceptions.handle(self.request,

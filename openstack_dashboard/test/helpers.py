@@ -27,14 +27,15 @@ from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django import http
 from django.test.client import RequestFactory
+from django.utils.importlib import import_module
 from django.utils import unittest
 
 from cinderclient import client as cinder_client
 import glanceclient
 from heatclient import client as heat_client
 from keystoneclient.v2_0 import client as keystone_client
+from neutronclient.v2_0 import client as neutron_client
 from novaclient.v1_1 import client as nova_client
-from quantumclient.v2_0 import client as quantum_client
 from swiftclient import client as swift_client
 
 import httplib2
@@ -224,6 +225,17 @@ class BaseAdminViewTests(TestCase):
             kwargs['roles'] = [self.roles.admin._info]
         super(BaseAdminViewTests, self).setActiveUser(*args, **kwargs)
 
+    def setSessionValues(self, **kwargs):
+        settings.SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+        engine = import_module(settings.SESSION_ENGINE)
+        store = engine.SessionStore()
+        for key in kwargs:
+            store[key] = kwargs[key]
+            self.request.session[key] = kwargs[key]
+        store.save()
+        self.session = store
+        self.client.cookies[settings.SESSION_COOKIE_NAME] = store.session_key
+
 
 class APITestCase(TestCase):
     """
@@ -246,7 +258,7 @@ class APITestCase(TestCase):
         self._original_glanceclient = api.glance.glanceclient
         self._original_keystoneclient = api.keystone.keystoneclient
         self._original_novaclient = api.nova.novaclient
-        self._original_quantumclient = api.quantum.quantumclient
+        self._original_neutronclient = api.neutron.neutronclient
         self._original_cinderclient = api.cinder.cinderclient
         self._original_heatclient = api.heat.heatclient
 
@@ -254,7 +266,7 @@ class APITestCase(TestCase):
         api.glance.glanceclient = lambda request: self.stub_glanceclient()
         api.keystone.keystoneclient = fake_keystoneclient
         api.nova.novaclient = lambda request: self.stub_novaclient()
-        api.quantum.quantumclient = lambda request: self.stub_quantumclient()
+        api.neutron.neutronclient = lambda request: self.stub_neutronclient()
         api.cinder.cinderclient = lambda request: self.stub_cinderclient()
         api.heat.heatclient = lambda request: self.stub_heatclient()
 
@@ -263,7 +275,7 @@ class APITestCase(TestCase):
         api.glance.glanceclient = self._original_glanceclient
         api.nova.novaclient = self._original_novaclient
         api.keystone.keystoneclient = self._original_keystoneclient
-        api.quantum.quantumclient = self._original_quantumclient
+        api.neutron.neutronclient = self._original_neutronclient
         api.cinder.cinderclient = self._original_cinderclient
         api.heat.heatclient = self._original_heatclient
 
@@ -282,10 +294,11 @@ class APITestCase(TestCase):
     def stub_keystoneclient(self):
         if not hasattr(self, "keystoneclient"):
             self.mox.StubOutWithMock(keystone_client, 'Client')
-            # NOTE(saschpe): Mock the 'auth_token' and 'service_catalog'
-            # property specifically, MockObject.__init__ ignores properties:
+            # NOTE(saschpe): Mock properties, MockObject.__init__ ignores them:
             keystone_client.Client.auth_token = 'foo'
             keystone_client.Client.service_catalog = None
+            keystone_client.Client.tenant_id = '1'
+            keystone_client.Client.tenant_name = 'tenant_1'
             self.keystoneclient = self.mox.CreateMock(keystone_client.Client)
         return self.keystoneclient
 
@@ -295,11 +308,11 @@ class APITestCase(TestCase):
             self.glanceclient = self.mox.CreateMock(glanceclient.Client)
         return self.glanceclient
 
-    def stub_quantumclient(self):
-        if not hasattr(self, "quantumclient"):
-            self.mox.StubOutWithMock(quantum_client, 'Client')
-            self.quantumclient = self.mox.CreateMock(quantum_client.Client)
-        return self.quantumclient
+    def stub_neutronclient(self):
+        if not hasattr(self, "neutronclient"):
+            self.mox.StubOutWithMock(neutron_client, 'Client')
+            self.neutronclient = self.mox.CreateMock(neutron_client.Client)
+        return self.neutronclient
 
     def stub_swiftclient(self, expected_calls=1):
         if not hasattr(self, "swiftclient"):

@@ -33,7 +33,8 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 
-from ...images_and_snapshots.utils import get_available_images
+from openstack_dashboard.dashboards.project.images_and_snapshots.utils \
+    import get_available_images
 
 
 LOG = logging.getLogger(__name__)
@@ -115,7 +116,7 @@ class VolumeOptionsAction(workflows.Action):
             visible_label = _("Volume")
         return (("%s:%s" % (volume.id, vol_type)),
                 (_("%(name)s - %(size)s GB (%(label)s)") %
-                 {'name': volume.display_name,
+                 {'name': volume.display_name or volume.id,
                   'size': volume.size,
                   'label': visible_label}))
 
@@ -377,7 +378,7 @@ class SetAccessControlsAction(workflows.Action):
 
     def populate_groups_choices(self, request, context):
         try:
-            groups = api.nova.security_group_list(request)
+            groups = api.network.security_group_list(request)
             security_group_list = [(sg.name, sg.name) for sg in groups]
         except:
             exceptions.handle(request,
@@ -441,7 +442,7 @@ class SetNetworkAction(workflows.Action):
                                                 "At least one network must"
                                                 " be specified.")},
                                         help_text=_("Launch instance with"
-                                                    "these networks"))
+                                                    " these networks"))
 
     class Meta:
         name = _("Networking")
@@ -451,7 +452,7 @@ class SetNetworkAction(workflows.Action):
     def populate_network_choices(self, request, context):
         try:
             tenant_id = self.request.user.tenant_id
-            networks = api.quantum.network_list_for_tenant(request, tenant_id)
+            networks = api.neutron.network_list_for_tenant(request, tenant_id)
             for n in networks:
                 n.set_id_as_name_if_empty()
             network_list = [(network.id, network.name) for network in networks]

@@ -4,6 +4,7 @@
 
 {% block form_id %}select_template{% endblock %}
 {% block form_action %}{% url 'horizon:project:stacks:select_template' %}{% endblock %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
 
 {% block modal-header %}{% trans "Select Template" %}{% endblock %}
 {% block modal_id %}select_template_modal{% endblock %}

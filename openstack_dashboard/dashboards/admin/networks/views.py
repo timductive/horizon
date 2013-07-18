@@ -27,11 +27,13 @@ from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import views as user_views
 
-from .forms import CreateNetwork
-from .forms import UpdateNetwork
-from .ports.tables import PortsTable
-from .subnets.tables import SubnetsTable
-from .tables import NetworksTable
+from openstack_dashboard.dashboards.admin.networks.forms import CreateNetwork
+from openstack_dashboard.dashboards.admin.networks.forms import UpdateNetwork
+from openstack_dashboard.dashboards.admin.networks.ports.tables \
+    import PortsTable
+from openstack_dashboard.dashboards.admin.networks.subnets.tables \
+    import SubnetsTable
+from openstack_dashboard.dashboards.admin.networks.tables import NetworksTable
 
 
 LOG = logging.getLogger(__name__)
@@ -56,7 +58,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            networks = api.quantum.network_list(self.request)
+            networks = api.neutron.network_list(self.request)
         except:
             networks = []
             msg = _('Network list can not be retrieved.')
@@ -86,7 +88,7 @@ class DetailView(tables.MultiTableView):
     def get_subnets_data(self):
         try:
             network_id = self.kwargs['network_id']
-            subnets = api.quantum.subnet_list(self.request,
+            subnets = api.neutron.subnet_list(self.request,
                                               network_id=network_id)
         except:
             subnets = []
@@ -99,7 +101,7 @@ class DetailView(tables.MultiTableView):
     def get_ports_data(self):
         try:
             network_id = self.kwargs['network_id']
-            ports = api.quantum.port_list(self.request, network_id=network_id)
+            ports = api.neutron.port_list(self.request, network_id=network_id)
         except:
             ports = []
             msg = _('Port list can not be retrieved.')
@@ -112,7 +114,7 @@ class DetailView(tables.MultiTableView):
         if not hasattr(self, "_network"):
             try:
                 network_id = self.kwargs['network_id']
-                network = api.quantum.network_get(self.request, network_id)
+                network = api.neutron.network_get(self.request, network_id)
                 network.set_id_as_name_if_empty(length=0)
             except:
                 redirect = self.failure_url

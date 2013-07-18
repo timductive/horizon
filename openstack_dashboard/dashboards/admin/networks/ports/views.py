@@ -26,8 +26,10 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports \
     import views as project_views
 
-from .forms import CreatePort
-from .forms import UpdatePort
+from openstack_dashboard.dashboards.admin.networks.ports.forms \
+    import CreatePort
+from openstack_dashboard.dashboards.admin.networks.ports.forms \
+    import UpdatePort
 
 LOG = logging.getLogger(__name__)
 
@@ -46,7 +48,7 @@ class CreateView(forms.ModalFormView):
         if not hasattr(self, "_object"):
             try:
                 network_id = self.kwargs["network_id"]
-                self._object = api.quantum.network_get(self.request,
+                self._object = api.neutron.network_get(self.request,
                                                        network_id)
             except:
                 redirect = reverse(self.failure_url,

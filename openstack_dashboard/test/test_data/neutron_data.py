@@ -13,39 +13,46 @@
 #    under the License.
 
 import copy
+import uuid
 
 from openstack_dashboard.api.lbaas import Member
 from openstack_dashboard.api.lbaas import Pool
 from openstack_dashboard.api.lbaas import PoolMonitor
 from openstack_dashboard.api.lbaas import Vip
 
-from openstack_dashboard.api.quantum import FloatingIp
-from openstack_dashboard.api.quantum import Network
-from openstack_dashboard.api.quantum import Port
-from openstack_dashboard.api.quantum import Router
-from openstack_dashboard.api.quantum import Subnet
+from openstack_dashboard.api.neutron import FloatingIp
+from openstack_dashboard.api.neutron import Network
+from openstack_dashboard.api.neutron import Port
+from openstack_dashboard.api.neutron import Router
+from openstack_dashboard.api.neutron import SecurityGroup
+from openstack_dashboard.api.neutron import SecurityGroupRule
+from openstack_dashboard.api.neutron import Subnet
 
-from .utils import TestDataContainer
+from openstack_dashboard.test.test_data.utils import TestDataContainer
 
 
 def data(TEST):
-    # data returned by openstack_dashboard.api.quantum wrapper
+    # data returned by openstack_dashboard.api.neutron wrapper
     TEST.networks = TestDataContainer()
     TEST.subnets = TestDataContainer()
     TEST.ports = TestDataContainer()
     TEST.routers = TestDataContainer()
     TEST.q_floating_ips = TestDataContainer()
+    TEST.q_secgroups = TestDataContainer()
+    TEST.q_secgroup_rules = TestDataContainer()
     TEST.pools = TestDataContainer()
     TEST.vips = TestDataContainer()
     TEST.members = TestDataContainer()
     TEST.monitors = TestDataContainer()
 
-    # data return by quantumclient
+    # data return by neutronclient
     TEST.api_networks = TestDataContainer()
     TEST.api_subnets = TestDataContainer()
     TEST.api_ports = TestDataContainer()
     TEST.api_routers = TestDataContainer()
     TEST.api_q_floating_ips = TestDataContainer()
+    TEST.api_q_secgroups = TestDataContainer()
+    TEST.api_q_secgroup_rules = TestDataContainer()
     TEST.api_pools = TestDataContainer()
     TEST.api_vips = TestDataContainer()
     TEST.api_members = TestDataContainer()
@@ -251,6 +258,88 @@ def data(TEST):
                 'router_id': router_dict['id']}
     TEST.api_q_floating_ips.add(fip_dict)
     TEST.q_floating_ips.add(FloatingIp(fip_dict))
+
+    #------------------------------------------------------------
+    # security group
+
+    sec_group_1 = {'tenant_id': '1',
+                   'description': 'default',
+                   'id': 'faad7c80-3b62-4440-967c-13808c37131d',
+                   'name': 'default'}
+    sec_group_2 = {'tenant_id': '1',
+                   'description': 'NotDefault',
+                   'id': '27a5c9a1-bdbb-48ac-833a-2e4b5f54b31d',
+                   'name': 'other_group'}
+    sec_group_3 = {'tenant_id': '1',
+                   'description': 'NotDefault',
+                   'id': '443a4d7a-4bd2-4474-9a77-02b35c9f8c95',
+                   'name': 'another_group'}
+
+    def add_rule_to_group(secgroup, default_only=True):
+        rule_egress_ipv4 = {
+            'id': str(uuid.uuid4()),
+            'direction': u'egress', 'ethertype': u'IPv4',
+            'port_range_min': None, 'port_range_max': None,
+            'protocol': None, 'remote_group_id': None,
+            'remote_ip_prefix': None,
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
+        rule_egress_ipv6 = {
+            'id': str(uuid.uuid4()),
+            'direction': u'egress', 'ethertype': u'IPv6',
+            'port_range_min': None, 'port_range_max': None,
+            'protocol': None, 'remote_group_id': None,
+            'remote_ip_prefix': None,
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
+
+        rule_tcp_80 = {
+            'id': str(uuid.uuid4()),
+            'direction': u'ingress', 'ethertype': u'IPv4',
+            'port_range_min': 80, 'port_range_max': 80,
+            'protocol': u'tcp', 'remote_group_id': None,
+            'remote_ip_prefix': u'0.0.0.0/0',
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
+        rule_icmp = {
+            'id': str(uuid.uuid4()),
+            'direction': u'ingress', 'ethertype': u'IPv4',
+            'port_range_min': 5, 'port_range_max': 8,
+            'protocol': u'icmp', 'remote_group_id': None,
+            'remote_ip_prefix': u'0.0.0.0/0',
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
+        rule_group = {
+            'id': str(uuid.uuid4()),
+            'direction': u'ingress', 'ethertype': u'IPv4',
+            'port_range_min': 80, 'port_range_max': 80,
+            'protocol': u'tcp', 'remote_group_id': sec_group_1['id'],
+            'remote_ip_prefix': None,
+            'security_group_id': secgroup['id'],
+            'tenant_id': secgroup['tenant_id']}
+
+        rules = []
+        if not default_only:
+            rules += [rule_tcp_80, rule_icmp, rule_group]
+        rules += [rule_egress_ipv4, rule_egress_ipv6]
+        secgroup['security_group_rules'] = rules
+
+    add_rule_to_group(sec_group_1, default_only=False)
+    add_rule_to_group(sec_group_2)
+    add_rule_to_group(sec_group_3)
+
+    groups = [sec_group_1, sec_group_2, sec_group_3]
+    sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
+    for sg in groups:
+        # Neutron API
+        TEST.api_q_secgroups.add(sg)
+        for rule in sg['security_group_rules']:
+            TEST.api_q_secgroup_rules.add(copy.copy(rule))
+        # OpenStack Dashboard internaly API
+        TEST.q_secgroups.add(SecurityGroup(copy.deepcopy(sg), sg_name_dict))
+        for rule in sg['security_group_rules']:
+            TEST.q_secgroup_rules.add(
+                SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
     #------------------------------------------------------------
     # LBaaS

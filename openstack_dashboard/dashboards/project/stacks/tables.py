@@ -19,10 +19,10 @@ from django.template.defaultfilters import timesince
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import messages
 from horizon import tables
 from horizon.utils.filters import parse_isotime
 from horizon.utils.filters import replace_underscores
-from horizon import messages
 
 from heatclient import exc
 

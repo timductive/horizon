@@ -15,7 +15,7 @@ x-served-by: cache-c31-CHI
 content-disposition: inline
 accept-ranges: bytes
 -content-encoding: gzip
-date: Thu, 27 Jun 2013 19:38:17 GMT
+date: Fri, 28 Jun 2013 20:08:51 GMT
 access-control-allow-origin: https://render.github.com
 content-location: https://raw.github.com/timductive/rs-heat-templates/master/rackspace/WordPress_Single_Instance_Rackspace_Cloud_Servers.template
 age: 0

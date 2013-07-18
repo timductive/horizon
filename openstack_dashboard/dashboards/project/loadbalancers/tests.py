@@ -15,12 +15,18 @@ from openstack_dashboard.api.lbaas import PoolMonitor
 from openstack_dashboard.api.lbaas import Vip
 from openstack_dashboard.test import helpers as test
 
-from .workflows import AddMember
-from .workflows import AddMonitor
-from .workflows import AddPMAssociation
-from .workflows import AddPool
-from .workflows import AddVip
-from .workflows import DeletePMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddMember
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddMonitor
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddPMAssociation
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddPool
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import AddVip
+from openstack_dashboard.dashboards.project.loadbalancers.workflows \
+    import DeletePMAssociation
 
 
 class LoadBalancerTests(test.TestCase):
@@ -85,16 +91,16 @@ class LoadBalancerTests(test.TestCase):
 
     def set_up_expect_with_exception(self):
         api.lbaas.pools_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.quantum)
+            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
         api.lbaas.members_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.quantum)
+            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
         api.lbaas.pool_health_monitors_get(
-            IsA(http.HttpRequest)).AndRaise(self.exceptions.quantum)
+            IsA(http.HttpRequest)).AndRaise(self.exceptions.neutron)
 
     @test.create_stubs({api.lbaas: ('pools_get', 'vip_get',
                                     'members_get', 'pool_get',
                                     'pool_health_monitors_get'),
-                        api.quantum: ('subnet_get',)})
+                        api.neutron: ('subnet_get',)})
     def test_index_pools(self):
         self.set_up_expect()
 
@@ -111,7 +117,7 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pools_get', 'vip_get',
                                     'members_get', 'pool_get',
                                     'pool_health_monitors_get'),
-                        api.quantum: ('subnet_get',)})
+                        api.neutron: ('subnet_get',)})
     def test_index_members(self):
         self.set_up_expect()
 
@@ -128,7 +134,7 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pools_get', 'vip_get',
                                     'pool_health_monitors_get',
                                     'members_get', 'pool_get'),
-                        api.quantum: ('subnet_get',)})
+                        api.neutron: ('subnet_get',)})
     def test_index_monitors(self):
         self.set_up_expect()
 
@@ -190,7 +196,7 @@ class LoadBalancerTests(test.TestCase):
                                 'horizon/common/_detail_table.html')
         self.assertEqual(len(res.context['monitorstable_table'].data), 0)
 
-    @test.create_stubs({api.quantum: ('network_list_for_tenant',),
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',),
                         api.lbaas: ('pool_create', )})
     def test_add_pool_post(self):
         pool = self.pools.first()
@@ -198,7 +204,7 @@ class LoadBalancerTests(test.TestCase):
         subnet = self.subnets.first()
         networks = [{'subnets': [subnet, ]}, ]
 
-        api.quantum.network_list_for_tenant(
+        api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
 
         api.lbaas.pool_create(
@@ -224,13 +230,13 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.quantum: ('network_list_for_tenant',)})
+    @test.create_stubs({api.neutron: ('network_list_for_tenant',)})
     def test_add_pool_get(self):
         subnet = self.subnets.first()
 
         networks = [{'subnets': [subnet, ]}, ]
 
-        api.quantum.network_list_for_tenant(
+        api.neutron.network_list_for_tenant(
             IsA(http.HttpRequest), subnet.tenant_id).AndReturn(networks)
 
         self.mox.ReplayAll()
@@ -245,7 +251,7 @@ class LoadBalancerTests(test.TestCase):
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
     @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
-                        api.quantum: ('subnet_get', )})
+                        api.neutron: ('subnet_get', )})
     def test_add_vip_post(self):
         vip = self.vips.first()
 
@@ -255,7 +261,7 @@ class LoadBalancerTests(test.TestCase):
         api.lbaas.pool_get(
             IsA(http.HttpRequest), pool.id).MultipleTimes().AndReturn(pool)
 
-        api.quantum.subnet_get(
+        api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
 
         api.lbaas.vip_create(
@@ -299,7 +305,7 @@ class LoadBalancerTests(test.TestCase):
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
     @test.create_stubs({api.lbaas: ('pool_get', ),
-                        api.quantum: ('subnet_get', )})
+                        api.neutron: ('subnet_get', )})
     def test_add_vip_post_with_error(self):
         vip = self.vips.first()
 
@@ -307,7 +313,7 @@ class LoadBalancerTests(test.TestCase):
         pool = self.pools.first()
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
-        api.quantum.subnet_get(
+        api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
 
         self.mox.ReplayAll()
@@ -330,13 +336,13 @@ class LoadBalancerTests(test.TestCase):
         self.assertFormErrors(res, 2)
 
     @test.create_stubs({api.lbaas: ('pool_get', ),
-                        api.quantum: ('subnet_get', )})
+                        api.neutron: ('subnet_get', )})
     def test_add_vip_get(self):
         subnet = self.subnets.first()
         pool = self.pools.first()
 
         api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
-        api.quantum.subnet_get(
+        api.neutron.subnet_get(
             IsA(http.HttpRequest), subnet.id).AndReturn(subnet)
 
         self.mox.ReplayAll()
@@ -425,7 +431,7 @@ class LoadBalancerTests(test.TestCase):
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
     @test.create_stubs({api.lbaas: ('pools_get', 'member_create'),
-                        api.quantum: ('port_list',),
+                        api.neutron: ('port_list',),
                         api.nova: ('server_list',)})
     def test_add_member_post(self):
         member = self.members.first()
@@ -445,7 +451,7 @@ class LoadBalancerTests(test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn(
             [[server1, server2], False])
 
-        api.quantum.port_list(IsA(http.HttpRequest),
+        api.neutron.port_list(IsA(http.HttpRequest),
                               device_id=server1.id).AndReturn([port1, ])
 
         api.lbaas.member_create(

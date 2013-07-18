@@ -1,6 +1,5 @@
-# vim: tabstop=4 shiftwidth=4 softtabstop=4
-
-# Copyright 2012 NEC Corporation All Rights Reserved.
+# Copyright 2011 OpenStack Foundation.
+# All Rights Reserved.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -14,18 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import uuid
 
-
-def get_int_or_uuid(value):
-    """Check if a value is valid as UUID or an integer.
-
-    This method is mainly used to convert floating IP id to the
-    appropriate type. For floating IP id, integer is used in Nova's
-    original implementation, but UUID is used in Quantum based one.
-    """
-    try:
-        uuid.UUID(value)
-        return value
-    except (ValueError, AttributeError):
-        return int(value)
+def notify(_context, message):
+    """Notifies the recipient of the desired event given the model."""
+    pass

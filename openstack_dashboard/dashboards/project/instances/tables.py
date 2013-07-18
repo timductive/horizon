@@ -358,8 +358,8 @@ class SimpleAssociateIP(tables.Action):
 
     def single(self, table, request, instance_id):
         try:
-            # target_id is port_id for Quantum and instance_id for Nova Network
-            # (Quantum API wrapper returns a 'portid_fixedip' string)
+            # target_id is port_id for Neutron and instance_id for Nova Network
+            # (Neutron API wrapper returns a 'portid_fixedip' string)
             target_id = api.network.floating_ip_target_get_by_instance(
                 request, instance_id).split('_')[0]
 
@@ -386,8 +386,8 @@ class SimpleDisassociateIP(tables.Action):
 
     def single(self, table, request, instance_id):
         try:
-            # target_id is port_id for Quantum and instance_id for Nova Network
-            # (Quantum API wrapper returns a 'portid_fixedip' string)
+            # target_id is port_id for Neutron and instance_id for Nova Network
+            # (Neutron API wrapper returns a 'portid_fixedip' string)
             target_id = api.network.floating_ip_target_get_by_instance(
                 request, instance_id).split('_')[0]
 
@@ -524,6 +524,8 @@ class InstancesTable(tables.DataTable):
     name = tables.Column("name",
                          link=("horizon:project:instances:detail"),
                          verbose_name=_("Instance Name"))
+    image_name = tables.Column("image_name",
+                               verbose_name=_("Image Name"))
     ip = tables.Column(get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
