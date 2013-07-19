@@ -54,8 +54,8 @@ STATIC_URL = '/static/'
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
 HORIZON_CONFIG = {
-    'dashboards': ('heat', ),
-    'default_dashboard': 'heat',
+    'dashboards': ('project', ),
+    'default_dashboard': 'project',
     'user_home': 'openstack_dashboard.views.get_user_home',
     'ajax_queue_limit': 10,
     'auto_fade_alerts': {
@@ -140,7 +140,6 @@ INSTALLED_APPS = (
     'openstack_dashboard.dashboards.admin',
     'openstack_dashboard.dashboards.settings',
     'openstack_auth',
-    'orchestration',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

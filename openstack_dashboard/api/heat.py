@@ -61,7 +61,6 @@ def heatclient(request):
     content = json.loads(content)
     rs_token = content.get('access').get('token').get('id')
 
-
     kwargs = {
         'token': rs_token, #request.user.token.id,
         'insecure': insecure,
@@ -72,6 +71,7 @@ def heatclient(request):
         #'cert_file': args.cert_file,
         #'key_file': args.key_file,
     }
+
     client = heat_client.Client(api_version, endpoint, **kwargs)
     client.format_parameters = format_parameters
     return client

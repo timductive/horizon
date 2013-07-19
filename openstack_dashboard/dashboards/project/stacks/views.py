@@ -14,17 +14,20 @@
 
 import json
 import logging
+import httplib2
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon import tabs
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import api
+from openstack_dashboard.api.base import url_for
 
 from openstack_dashboard.dashboards.project.stacks.forms import StackCreateForm
 from openstack_dashboard.dashboards.project.stacks.forms import TemplateForm
@@ -36,6 +39,47 @@ from openstack_dashboard.dashboards.project.stacks.tabs import StackDetailTabs
 
 LOG = logging.getLogger(__name__)
 
+def get_rs_token(request):
+    #Setup RS Token
+    rs_user = request.user.username
+    rs_password = getattr(settings, 'RACKSPACE_PASSWORD', False)
+    url = 'https://identity.api.rackspacecloud.com/v2.0/tokens'
+    data = {}
+    data['auth'] = {}
+    data['auth']['passwordCredentials'] = {'username':rs_user,'password':rs_password}
+    h = httplib2.Http(".cache")
+    resp, content = h.request(
+        uri=url,
+        method='POST',
+        headers={'Content-Type': 'application/json; charset=UTF-8'},
+        body=json.dumps(data),
+        )
+    content = json.loads(content)
+    rs_token = content.get('access').get('token').get('id')
+    return rs_token
+
+def get_stacks(request):
+    endpoint = url_for(request, 'orchestration')
+    stacks_list_url = endpoint + '/stacks?limit=20'
+    rs_user = request.user.username
+    rs_password = getattr(settings, 'RACKSPACE_PASSWORD', False)
+
+    headers = {}
+    # headers['X-Auth-User'] = rs_user
+    headers['X-Auth-Token'] = get_rs_token(request)
+    # headers['X-Auth-Key'] = rs_password
+    headers['Content-Type'] = 'application/json; charset=UTF-8'
+
+    h = httplib2.Http(disable_ssl_certificate_validation=True)
+    resp, content = h.request(
+        uri=stacks_list_url,
+        method='GET',
+        headers=headers,
+        )
+    stacks = content #json.loads(content)
+    print 'STACKS'
+    print stacks
+    return stacks
 
 class IndexView(tables.DataTableView):
     table_class = StacksTable
@@ -45,6 +89,7 @@ class IndexView(tables.DataTableView):
         request = self.request
         try:
             stacks = api.heat.stacks_list(self.request)
+            #stacks = get_stacks(self.request)
         except:
             exceptions.handle(request, _('Unable to retrieve stack list.'))
             stacks = []
