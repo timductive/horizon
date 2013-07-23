@@ -39,7 +39,10 @@ def heatclient(request):
               (request.user.token.id, endpoint))
 
     rs_user = request.user.username #getattr(settings, 'RACKSPACE_USER', False)
-    rs_password = getattr(settings, 'RACKSPACE_PASSWORD', False)
+    if rs_user == 'heatdev':
+        rs_password = getattr(settings, 'HEATDEV_PASSWORD', False)
+    else:
+        rs_password = getattr(settings, 'RACKSPACE_PASSWORD', False)
 
     #Call Rackspace Identity to get Token
     url = 'https://identity.api.rackspacecloud.com/v2.0/tokens'

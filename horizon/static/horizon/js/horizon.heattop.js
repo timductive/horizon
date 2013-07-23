@@ -232,6 +232,8 @@ function ajax_poll(poll_time){
                     current_node.status = d.status;
 
                     //Status has changed, image should be updated
+                    console.log(current_node.image);
+                    console.log(d.image);
                     if (current_node.image != d.image){
                         current_node.image = d.image;
                         var this_image = d3.select("#image_"+current_node.name);

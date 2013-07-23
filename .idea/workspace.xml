@@ -2,32 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cbf5ab8-11ae-4066-9072-50e4488cbabd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/openstack_dashboard/static/dashboard/img/unknown-gray.svg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/orchestration" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ubuntu-b730db00.13842" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ubuntu-b7385b00.12651" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ubuntu-b739eb00.7926" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/api.py" afterPath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/api.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/api/heat.py" afterPath="$PROJECT_DIR$/openstack_dashboard/api/heat.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js" afterPath="$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/static/dashboard/less/horizon.less" afterPath="$PROJECT_DIR$/openstack_dashboard/static/dashboard/less/horizon.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/mappings.py" afterPath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/mappings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/settings.py" afterPath="$PROJECT_DIR$/openstack_dashboard/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/views.py" afterPath="$PROJECT_DIR$/openstack_dashboard/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/views.py" afterPath="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="horizon-rs.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374266034577" ignored="false" />
-    <file path="/local_settings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374251524748" ignored="false" />
+    <file path="/Dummy.txt" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374529857737" ignored="false" />
+    <file path="/local_settings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374590747674" ignored="false" />
     <file path="/views.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374251445544" ignored="false" />
     <file path="/settings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374175737799" ignored="false" />
-    <file path="/heat.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374251534886" ignored="false" />
+    <file path="/heat.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374591116990" ignored="false" />
     <file path="/detail.html" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373312357131" ignored="false" />
     <file path="/__init__.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372429697075" ignored="false" />
     <file path="/quantum.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372429615708" ignored="false" />
-    <file path="/api.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374266225231" ignored="false" />
+    <file path="/api.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374269524989" ignored="false" />
     <file path="/models.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1372450083258" ignored="false" />
     <file path="/sro.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373568977158" ignored="false" />
     <file path="/_overview_topology.html" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373380328603" ignored="false" />
@@ -64,7 +53,7 @@
     <file path="$PROJECT_DIR$/../horizon/openstack_dashboard/dashboards/project/stacks/templates/stacks/_detail_topology.html" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373579987440" ignored="false" />
     <file path="/_detail_topology.html" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373569926438" ignored="false" />
     <file path="$PROJECT_DIR$/../horizon/openstack_dashboard/dashboards/project/stacks/sro.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1373579987441" ignored="false" />
-    <file path="/horizon.heattop.js" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374266011489" ignored="false" />
+    <file path="/horizon.heattop.js" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374269412922" ignored="false" />
     <file path="$PROJECT_DIR$/../horizon/openstack_dashboard/dashboards/project/stacks/api.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374096731173" ignored="false" />
     <file path="$PROJECT_DIR$/../horizon/openstack_dashboard/dashboards/project/stacks/mappings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374096731173" ignored="false" />
     <file path="/mappings.py" changelist="3cbf5ab8-11ae-4066-9072-50e4488cbabd" time="1374259164860" ignored="false" />
@@ -87,19 +76,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="local_settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="local_settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="0" selection-start="5356" selection-end="5356" vertical-scroll-proportion="0.0">
+            <state line="131" column="36" selection-start="5020" selection-end="5034" vertical-scroll-proportion="0.19970414">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="horizon.heattop.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="horizon.heattop.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="54" selection-start="3777" selection-end="3777" vertical-scroll-proportion="0.5968645">
+            <state line="235" column="41" selection-start="7427" selection-end="7427" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,7 +97,7 @@
       <file leaf-file-name="mappings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/mappings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="1" selection-start="4366" selection-end="4366" vertical-scroll-proportion="0.0">
+            <state line="136" column="21" selection-start="4988" selection-end="4988" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,8 +106,19 @@
       <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0">
+            <state line="40" column="13" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heat.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/heat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="8" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#590#604#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,21 +150,21 @@
         <option value="$PROJECT_DIR$/openstack_dashboard/settings.py" />
         <option value="$PROJECT_DIR$/openstack_dashboard/views.py" />
         <option value="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/views.py" />
-        <option value="$PROJECT_DIR$/openstack_dashboard/local/local_settings.py" />
-        <option value="$PROJECT_DIR$/openstack_dashboard/api/heat.py" />
         <option value="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/mappings.py" />
-        <option value="$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js" />
         <option value="$PROJECT_DIR$/horizon/templates/horizon/_scripts.html" />
         <option value="$PROJECT_DIR$/openstack_dashboard/static/dashboard/less/horizon.less" />
+        <option value="$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js" />
         <option value="$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/api.py" />
+        <option value="$PROJECT_DIR$/openstack_dashboard/local/local_settings.py" />
+        <option value="$PROJECT_DIR$/openstack_dashboard/api/heat.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1973" />
-    <option name="y" value="8" />
-    <option name="width" value="1145" />
-    <option name="height" value="1041" />
+    <option name="x" value="1646" />
+    <option name="y" value="36" />
+    <option name="width" value="1440" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -257,215 +257,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openstack_dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openstack_dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openstack_dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openstack_dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon-rs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="horizon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="wsgi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -628,7 +420,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1973" y="8" width="1145" height="1041" extended-state="0" />
+    <frame x="1646" y="36" width="1440" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -636,7 +428,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25204733" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.205165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -751,72 +543,64 @@
         <state line="27" column="41" selection-start="937" selection-end="937" vertical-scroll-proportion="0.5053599" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/heat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.5968645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/static/dashboard/img/unknown-gray.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="28" selection-start="4902" selection-end="4902" vertical-scroll-proportion="-0.14221725">
-          <folding />
-        </state>
+        <state line="143" column="28" selection-start="4902" selection-end="4902" vertical-scroll-proportion="-0.14221725" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="54" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.016797312">
-          <folding />
-        </state>
+        <state line="30" column="54" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.016797312" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py">
+    <entry file="file://$PROJECT_DIR$/openstack_dashboard/static/dashboard/less/horizon.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="0" selection-start="5356" selection-end="5356" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2088" column="41" selection-start="40314" selection-end="40314" vertical-scroll-proportion="0.60795456" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/horizon/templates/horizon/_scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="3429" selection-end="3538" vertical-scroll-proportion="0.71845794" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/mappings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="1" selection-start="4366" selection-end="4366" vertical-scroll-proportion="0.0">
+        <state line="136" column="21" selection-start="4988" selection-end="4988" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/openstack_dashboard/dashboards/project/stacks/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="27" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openstack_dashboard/static/dashboard/less/horizon.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2088" column="41" selection-start="40314" selection-end="40314" vertical-scroll-proportion="0.60795456">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/horizon/templates/horizon/_scripts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="3429" selection-end="3538" vertical-scroll-proportion="0.71845794">
+        <state line="40" column="13" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/horizon/static/horizon/js/horizon.heattop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="54" selection-start="3777" selection-end="3777" vertical-scroll-proportion="0.5968645">
+        <state line="235" column="41" selection-start="7427" selection-end="7427" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openstack_dashboard/api/heat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="8" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#590#604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openstack_dashboard/local/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="36" selection-start="5020" selection-end="5034" vertical-scroll-proportion="0.19970414">
           <folding />
         </state>
       </provider>
